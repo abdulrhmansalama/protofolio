@@ -109,35 +109,37 @@ if page == "CV":
             st.write("### MEC Academy - AI Course")
             col1, col2 = st.columns([1, 1])
             with col1:
-                st.image(certificate_path, caption="Certificate of AI from MEC Academy", use_column_width=True)
+                st.image(certificate_path, caption="Certificate of AI from MEC Academy", use_container_width=True)
             with col2:
-                st.image(team_photo_rounded, caption="Team photo with MEC Academy", use_column_width=False)
+                st.image(team_photo_rounded, caption="Team photo with MEC Academy", use_container_width=True)
         else:
             st.error("Certificates or photos not found.")
 
         st.write("### MaharaTec - AI Course")
-        st.image("certificate/AI_Mahara_tec.png", caption="Certificate of AI from MaharaTec")
+        st.image("certificate/AI_Mahara_tec.png", caption="Certificate of AI from MaharaTec", use_container_width=True)
 
         st.write("### MaharaTec - Database Fundamentals")
-        st.image("certificate/database_fundamentals_mahara_tec.png", caption="Certificate of Database Fundamentals")
+        st.image("certificate/database_fundamentals_mahara_tec.png", caption="Certificate of Database Fundamentals", use_container_width=True)
 
         st.write("### MaharaTec - Python Basic")
-        st.image("certificate/Python_basic_mahara_tec.png", caption="Certificate of Python Basic")
+        st.image("certificate/Python_basic_mahara_tec.png", caption="Certificate of Python Basic", use_container_width=True)
 
-         # Load and prepare images
+        # Load and prepare WE Training Certificate
         certificate_path = "certificate/we_Training.jpg"
         team_photo_path = "my/we_best_trainer.jpg"
-        team_photo_rounded = make_rounded_image(team_photo_path)
 
-        # WE Training Certificate
-        st.write("### [WE] Egyptian Telecommunications Training")
-        col1, col2 = st.columns([1, 1])  # Create two columns for layout
-        with col1:
-            st.image(certificate_path, caption="Training Certificate from WE", use_column_width=True)
-        with col2:
-            st.image(team_photo_rounded, caption="Best Trainer Certificate from WE", use_column_width=False)
+        if os.path.exists(certificate_path) and os.path.exists(team_photo_path):
+            team_photo_rounded = make_rounded_image(team_photo_path)
 
-    
+            st.write("### [WE] Egyptian Telecommunications Training")
+            col1, col2 = st.columns([1, 1])  # Create two columns for layout
+            with col1:
+                st.image(certificate_path, caption="Training Certificate from WE", use_container_width=True)
+            with col2:
+                st.image(team_photo_rounded, caption="Best Trainer Certificate from WE", use_container_width=True)
+        else:
+            st.error("WE Training certificates or photos not found.")
+
 
     st.header("Contact Information")
     st.write("""
