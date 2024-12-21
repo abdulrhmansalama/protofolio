@@ -3,30 +3,36 @@ from PIL import Image, ImageOps, ImageDraw
 import base64
 import os
 
-# Path for your images
-image_path = "my\\my_photo.jpg"
-linkedin_logo_path = "logo\\LinkedIn.png"
-github_logo_path = "logo\\GitHub.png"
-email_logo_path = "logo\\Email.png"
-whatsapp_logo_path = "logo\\WhatsApp.png"
+# Paths for images
+image_path = "my/my_photo.jpg"
+linkedin_logo_path = "logo/LinkedIn.png"
+github_logo_path = "logo/GitHub.png"
+email_logo_path = "logo/Email.png"
+whatsapp_logo_path = "logo/WhatsApp.png"
 
-# Function to convert image to base64
 def image_to_base64(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode()
+    """Convert an image file to base64 encoding."""
+    try:
+        with open(image_path, "rb") as img_file:
+            return base64.b64encode(img_file.read()).decode()
+    except FileNotFoundError:
+        return None
 
-# Function to make image circular
 def make_rounded_image(image_path, size=(150, 150)):
-    img = Image.open(image_path).convert("RGBA")
-    img = img.resize(size, Image.Resampling.LANCZOS)
+    """Create a circular version of the image."""
+    try:
+        img = Image.open(image_path).convert("RGBA")
+        img = img.resize(size, Image.Resampling.LANCZOS)
 
-    mask = Image.new("L", size, 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0, size[0], size[1]), fill=255)
+        mask = Image.new("L", size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0, size[0], size[1]), fill=255)
 
-    rounded_img = ImageOps.fit(img, size, centering=(0.5, 0.5))
-    rounded_img.putalpha(mask)
-    return rounded_img
+        rounded_img = ImageOps.fit(img, size, centering=(0.5, 0.5))
+        rounded_img.putalpha(mask)
+        return rounded_img
+    except FileNotFoundError:
+        return None
 
 # Convert images to base64 for HTML usage
 linkedin_logo_base64 = image_to_base64(linkedin_logo_path)
@@ -35,81 +41,10 @@ email_logo_base64 = image_to_base64(email_logo_path)
 whatsapp_logo_base64 = image_to_base64(whatsapp_logo_path)
 
 # HTML button templates for each button with base64 logo images
-linkedin_button_html = f"""
-<div style="text-align: center; margin-top: 20px;">
-    <a href="https://www.linkedin.com/in/abdulrhman-salama-908a09255" target="_blank" style="
-        display: inline-block;
-        background-color: #0077B5;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        text-align: center;
-    ">
-        <img src="data:image/png;base64,{linkedin_logo_base64}" alt="LinkedIn Logo" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px;">
-        LinkedIn Profile
-    </a>
-</div>
-"""
-
-github_button_html = f"""
-<div style="text-align: center; margin-top: 20px;">
-    <a href="https://github.com/abdulrhmansalama" target="_blank" style="
-        display: inline-block;
-        background-color: #333;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        text-align: center;
-    ">
-        <img src="data:image/png;base64,{github_logo_base64}" alt="GitHub Logo" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px;">
-        GitHub Profile
-    </a>
-</div>
-"""
-
-email_button_html = f"""
-<div style="text-align: center; margin-top: 20px;">
-    <a href="mailto:bdalrhmnslmt@gmail.com" style="
-        display: inline-block;
-        background-color: #D14836;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        text-align: center;
-    ">
-        <img src="data:image/png;base64,{email_logo_base64}" alt="Email Logo" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px;">
-        Send Email
-    </a>
-</div>
-"""
-
-whatsapp_button_html = f"""
-<div style="text-align: center; margin-top: 20px;">
-    <a href="https://wa.me/+201090586412" target="_blank" style="
-        display: inline-block;
-        background-color: #25D366;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        border: none;
-        text-align: center;
-    ">
-        <img src="data:image/png;base64,{whatsapp_logo_base64}" alt="WhatsApp Logo" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 8px;">
-        Chat on WhatsApp
-    </a>
-</div>
-"""
+linkedin_button_html = f"""<a href="https://linkedin.com" target="_blank"><img src="data:image/png;base64,{linkedin_logo_base64}" width="30"></a>""" if linkedin_logo_base64 else ""
+github_button_html = f"""<a href="https://github.com" target="_blank"><img src="data:image/png;base64,{github_logo_base64}" width="30"></a>""" if github_logo_base64 else ""
+email_button_html = f"""<a href="mailto:example@example.com" target="_blank"><img src="data:image/png;base64,{email_logo_base64}" width="30"></a>""" if email_logo_base64 else ""
+whatsapp_button_html = f"""<a href="https://wa.me/123456789" target="_blank"><img src="data:image/png;base64,{whatsapp_logo_base64}" width="30"></a>""" if whatsapp_logo_base64 else ""
 
 # Sidebar Navigation
 page = st.sidebar.selectbox("Select a Page", ["CV", "Portfolio"])
@@ -117,23 +52,15 @@ page = st.sidebar.selectbox("Select a Page", ["CV", "Portfolio"])
 if page == "CV":
     st.title('CV of Abdulrhman Salama')
 
-    # Handle missing image gracefully
-    if os.path.exists(image_path):
-        img = Image.open(image_path)
-
-        img = img.convert("RGB")
-        width, height = img.size
-        diameter = min(width, height)
-
-        img_cropped = ImageOps.fit(img, (diameter, diameter), method=0)
-        mask = Image.new('L', (diameter, diameter), 0)
-        draw = ImageDraw.Draw(mask)
-        draw.ellipse((0, 0, diameter, diameter), fill=255)
-
-        img_circular = Image.new('RGB', (diameter, diameter))
-        img_circular.paste(img_cropped, (0, 0), mask=mask)
-
-        st.image(img_circular, caption='Abdulrhman Salama', width=300)
+    # Display profile image
+    try:
+        img = make_rounded_image(image_path)
+        if img:
+            st.image(img, caption='Abdulrhman Salama', width=150)
+        else:
+            st.warning("Profile image not found.")
+    except Exception as e:
+        st.error(f"Error displaying profile image: {e}")
 
     st.header("Personal Information")
     st.write("""
@@ -173,8 +100,8 @@ if page == "CV":
     if st.button('See More'):
         st.subheader("Detailed Certificates")
 
-        certificate_path = "certificate\\Ai_mec.jpg"
-        team_photo_path = "my\\mec_academy.jpg"
+        certificate_path = "certificate/Ai_mec.jpg"
+        team_photo_path = "my/mec_academy.jpg"
 
         if os.path.exists(certificate_path) and os.path.exists(team_photo_path):
             team_photo_rounded = make_rounded_image(team_photo_path)
@@ -189,20 +116,19 @@ if page == "CV":
             st.error("Certificates or photos not found.")
 
         st.write("### MaharaTec - AI Course")
-        st.image("certificate\\AI_Mahara_tec.png", caption="Certificate of AI from MaharaTec")
+        st.image("certificate/AI_Mahara_tec.png", caption="Certificate of AI from MaharaTec")
 
         st.write("### MaharaTec - Database Fundamentals")
-        st.image("certificate\\database_fundamentals_mahara_tec.png", caption="Certificate of Database Fundamentals")
+        st.image("certificate/database_fundamentals_mahara_tec.png", caption="Certificate of Database Fundamentals")
 
         st.write("### MaharaTec - Python Basic")
-        st.image("certificate\\Python_basic_mahara_tec.png", caption="Certificate of Python Basic")
+        st.image("certificate/Python_basic_mahara_tec.png", caption="Certificate of Python Basic")
 
     st.header("Contact Information")
     st.write("""
     You can reach me via the following channels:
     """)
 
-    # Canvas-like button layout using columns
     col1, col2 = st.columns(2)
 
     with col1:
@@ -222,7 +148,6 @@ elif page == "Portfolio":
     Below are some of the projects and work I have done related to AI, machine learning, and more.
     """)
 
-    # Projects Section
     st.header("Projects")
     st.write("""
     - **AI-based Prediction Model**: A machine learning model used to predict [something]. Technologies used: Python, Scikit-learn.
@@ -230,7 +155,6 @@ elif page == "Portfolio":
     - **Data Analysis Project**: Analyzing large datasets using machine learning algorithms to extract insights. Technologies used: Python, Pandas, Scikit-learn.
     """)
 
-    # GitHub or Project Links
     st.header("GitHub & Repositories")
     st.write("""
     Check out my projects on GitHub:
@@ -238,27 +162,23 @@ elif page == "Portfolio":
     - [GitHub Repository 2](https://github.com/yourusername/project2)
     """)
 
-    # Kaggle Profile
     st.header("Kaggle Profile")
     st.write("""
     Explore my work and notebooks on Kaggle:
     - [Kaggle Profile](https://www.kaggle.com/abdulrhmansalama)
     """)
 
-    # Additional Information
     st.header("Other Work")
     st.write("""
     - **Blog Posts**: I've written a few blog posts about AI and machine learning. You can check them out here: [Blog Link].
     - **Open Source Contributions**: I actively contribute to open-source projects, especially in AI and machine learning.
     """)
 
-    # Contact Information
     st.header("Contact Information")
     st.write("""
     You can reach me via the following channels:
     """)
 
-    # Display buttons using the same canvas layout
     col1, col2 = st.columns(2)
 
     with col1:
