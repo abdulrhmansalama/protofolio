@@ -58,7 +58,7 @@ if page == "CV":
 
     st.header("Education")
     st.write("""
-    - **University**: Alexandria Higher Institute of Engineering and Technology
+    - **University**: Alexandria
     - **Degree Program**: Bachelor in Computer Engineering
     - **Expected Graduation Year**: 2026
     """)
