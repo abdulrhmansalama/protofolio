@@ -124,6 +124,21 @@ if page == "CV":
         st.write("### MaharaTec - Python Basic")
         st.image("certificate/Python_basic_mahara_tec.png", caption="Certificate of Python Basic")
 
+         # Load and prepare images
+        certificate_path = "certificate/we_Training.jpg"
+        team_photo_path = "my/we_best_trainer.jpg"
+        team_photo_rounded = make_rounded_image(team_photo_path)
+
+        # WE Training Certificate
+        st.write("### [WE] Egyptian Telecommunications Training")
+        col1, col2 = st.columns([1, 1])  # Create two columns for layout
+        with col1:
+            st.image(certificate_path, caption="Training Certificate from WE", use_column_width=True)
+        with col2:
+            st.image(team_photo_rounded, caption="Best Trainer Certificate from WE", use_column_width=False)
+
+    
+
     st.header("Contact Information")
     st.write("""
     You can reach me via the following channels:
