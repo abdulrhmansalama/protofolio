@@ -125,37 +125,51 @@ if page == "CV":
     - **Phone**: +201090586412
     """)
 
+# صفحة المحفظة (Portfolio)
 elif page == "Portfolio":
+    # Portfolio Page
     st.title('Portfolio of Abdulrhman Salama')
 
     st.header("About Me")
     st.write("""
     Hello! I am Abdulrhman Salama, a Computer Engineering student passionate about Artificial Intelligence and Machine Learning.
+    Below are some of the projects and work I have done related to AI, machine learning, and more.
     """)
 
+    # Projects Section
     st.header("Projects")
     st.write("""
-    - **AI-based Prediction Model**: A machine learning model used to predict outcomes using Python.
-    - **Image Recognition with Deep Learning**: Implemented deep learning techniques for image classification.
-    - **Data Analysis Project**: Insights extraction from datasets using Python and Pandas.
+    - **AI-based Prediction Model**: A machine learning model used to predict [something]. Technologies used: Python, Scikit-learn.
+    - **Image Recognition with Deep Learning**: A deep learning model trained to recognize objects in images. Technologies used: TensorFlow, Keras.
+    - **Data Analysis Project**: Analyzing large datasets using machine learning algorithms to extract insights. Technologies used: Python, Pandas, Scikit-learn.
     """)
 
+    # GitHub or Project Links
     st.header("GitHub & Repositories")
     st.write("""
     Check out my projects on GitHub:
-    - [GitHub Repository](https://github.com/abdulrhmansalama)
+    - [GitHub Repository 1](https://github.com/yourusername/project1)
+    - [GitHub Repository 2](https://github.com/yourusername/project2)
     """)
 
+    # Kaggle Profile
+    st.header("Kaggle Profile")
+    st.write("""
+    Explore my work and notebooks on Kaggle:
+    - [Kaggle Profile](https://www.kaggle.com/abdulrhmansalama)
+    """)
+
+    # Additional Information
     st.header("Other Work")
     st.write("""
-    - **Blog Posts**: Sharing knowledge about AI and machine learning.
-    - **Open Source Contributions**: Actively contributing to the AI community.
+    - **Blog Posts**: I've written a few blog posts about AI and machine learning. You can check them out here: [Blog Link].
+    - **Open Source Contributions**: I actively contribute to open-source projects, especially in AI and machine learning.
     """)
 
+    # Contact Information (same as CV)
     st.header("Contact Information")
     st.write("""
     - **Email**: bdalrhmnslmt@gmail.com
     - **LinkedIn**: [LinkedIn Profile](https://www.linkedin.com/in/abdulrhman-salama-908a09255)
     - **GitHub**: [GitHub Profile](https://github.com/abdulrhmansalama)
-    - **Phone**: +201090586412
     """)
