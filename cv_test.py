@@ -193,11 +193,11 @@ elif page == "Portfolio":
     - [Breast Cancer Detection Model](https://www.kaggle.com/code/abdulrhmansalama/breast-cancer)
     """)
 
-    st.header("Other Work")
-    st.write("""
-    - **Blog Posts**: I've written a few blog posts about AI and machine learning. You can check them out here: [Blog Link].
-    - **Open Source Contributions**: I actively contribute to open-source projects, especially in AI and machine learning.
-    """)
+    # st.header("Other Work")
+    # st.write("""
+    # - **Blog Posts**: I've written a few blog posts about AI and machine learning. You can check them out here: [Blog Link].
+    # - **Open Source Contributions**: I actively contribute to open-source projects, especially in AI and machine learning.
+    # """)
 
     st.header("Contact Information")
     st.write("""
