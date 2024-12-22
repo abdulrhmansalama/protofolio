@@ -165,24 +165,32 @@ elif page == "Portfolio":
     Below are some of the projects and work I have done related to AI, machine learning, and more.
     """)
 
-    st.header("Projects")
+    st.header("Highlighted Projects")
     st.write("""
-    - **AI-based Prediction Model**: A machine learning model used to predict [something]. Technologies used: Python, Scikit-learn.
-    - **Image Recognition with Deep Learning**: A deep learning model trained to recognize objects in images. Technologies used: TensorFlow, Keras.
-    - **Data Analysis Project**: Analyzing large datasets using machine learning algorithms to extract insights. Technologies used: Python, Pandas, Scikit-learn.
+    - **ATM Machine Algorithm**: Developed an ATM machine simulation using Python.
+      [GitHub Repository](https://github.com/abdulrhmansalama/Python_Project)
+    
+    - **University Database System**: Designed and implemented a university database using SQL.
+    
+    - **Breast Cancer Detection Model**: Created a machine learning model for breast cancer detection.
+      [View on Kaggle](https://www.kaggle.com/code/abdulrhmansalama/breast-cancer)
+
+    - **Additional Projects**: Explore more on my Kaggle profile.
+      [Kaggle Profile](https://www.kaggle.com/abdulrhmansalama)
     """)
 
     st.header("GitHub & Repositories")
     st.write("""
     Check out my projects on GitHub:
-    - [GitHub Repository 1](https://github.com/yourusername/project1)
-    - [GitHub Repository 2](https://github.com/yourusername/project2)
+    - [ATM Machine Algorithm](https://github.com/abdulrhmansalama/Python_Project)
+    - [Additional Projects](https://github.com/abdulrhmansalama)
     """)
 
-    st.header("Kaggle Profile")
+    st.header("Kaggle Contributions")
     st.write("""
-    Explore my work and notebooks on Kaggle:
+    I am an Expert on Kaggle with multiple AI and machine learning projects:
     - [Kaggle Profile](https://www.kaggle.com/abdulrhmansalama)
+    - [Breast Cancer Detection Model](https://www.kaggle.com/code/abdulrhmansalama/breast-cancer)
     """)
 
     st.header("Other Work")
