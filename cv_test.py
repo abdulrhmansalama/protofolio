@@ -43,7 +43,7 @@ whatsapp_logo_base64 = image_to_base64(whatsapp_logo_path)
 # HTML button templates for each button with base64 logo images
 linkedin_button_html = f"""<a href="https://www.linkedin.com/in/abdulrhman-salama-908a09255/" target="_blank"><img src="data:image/png;base64,{linkedin_logo_base64}" width="30"></a>""" if linkedin_logo_base64 else ""
 github_button_html = f"""<a href="https://github.com/abdulrhmansalama" target="_blank"><img src="data:image/png;base64,{github_logo_base64}" width="30"></a>""" if github_logo_base64 else ""
-email_button_html = f"""<a href="bdalrhmnslmt@gmail.com" target="_blank"><img src="data:image/png;base64,{email_logo_base64}" width="30"></a>""" if email_logo_base64 else ""
+email_button_html = f"""<a href="mailto:bdalrhmnslmt@gmail.com" target="_blank"><img src="data:image/png;base64,{email_logo_base64}" width="30"></a>""" if email_logo_base64 else ""
 whatsapp_button_html = f"""<a href="https://wa.me/+201090586412" target="_blank"><img src="data:image/png;base64,{whatsapp_logo_base64}" width="30"></a>""" if whatsapp_logo_base64 else ""
 
 # Sidebar Navigation
@@ -83,6 +83,9 @@ if page == "CV":
     - **Machine Learning Libraries**: TensorFlow, Keras, Scikit-learn
     - **AI Concepts**: Neural Networks, Deep Learning, Reinforcement Learning
     - **Tools & Software**: MATLAB, Jupyter, Git, Docker
+    - **Big Data Analysis**: Proficient in analyzing large datasets effectively.
+    - **Business Intelligence Tools**: Advanced skills in Power BI and Excel.
+    - **Streamlit Development**: Experienced in creating web applications using Streamlit library in Python.
     """)
 
     st.header("Projects")
