@@ -1,3 +1,7 @@
+
+
+
+
 import streamlit as st
 from PIL import Image, ImageOps, ImageDraw
 import base64
@@ -9,6 +13,8 @@ linkedin_logo_path = "logo/LinkedIn.png"
 github_logo_path = "logo/GitHub.png"
 email_logo_path = "logo/Email.png"
 whatsapp_logo_path = "logo/WhatsApp.png"
+facebook_logo_path = "logo/Facebook.png"
+kaggle_logo_path = "logo/Kaggle.png"
 
 def image_to_base64(image_path):
     """Convert an image file to base64 encoding."""
@@ -39,12 +45,16 @@ linkedin_logo_base64 = image_to_base64(linkedin_logo_path)
 github_logo_base64 = image_to_base64(github_logo_path)
 email_logo_base64 = image_to_base64(email_logo_path)
 whatsapp_logo_base64 = image_to_base64(whatsapp_logo_path)
+facebook_logo_base64 = image_to_base64(facebook_logo_path)
+kaggle_logo_base64 = image_to_base64(kaggle_logo_path)
 
 # HTML button templates for each button with base64 logo images
 linkedin_button_html = f"""<a href="https://www.linkedin.com/in/abdulrhman-salama-908a09255/" target="_blank"><img src="data:image/png;base64,{linkedin_logo_base64}" width="30"></a>""" if linkedin_logo_base64 else ""
 github_button_html = f"""<a href="https://github.com/abdulrhmansalama" target="_blank"><img src="data:image/png;base64,{github_logo_base64}" width="30"></a>""" if github_logo_base64 else ""
-email_button_html = f"""<a href="mailto:bdalrhmnslmt@gmail.com" target="_blank"><img src="data:image/png;base64,{email_logo_base64}" width="30"></a>""" if email_logo_base64 else ""
+email_button_html = f"""<a href="mailto:bdalrhmnslmt@gmail.com?subject=Contact%20from%20Portfolio&body=Hello%20Abdulrhman," target="_blank"><img src="data:image/png;base64,{email_logo_base64}" width="30"></a>""" if email_logo_base64 else ""
 whatsapp_button_html = f"""<a href="https://wa.me/+201090586412" target="_blank"><img src="data:image/png;base64,{whatsapp_logo_base64}" width="30"></a>""" if whatsapp_logo_base64 else ""
+facebook_button_html = f"""<a href="https://www.facebook.com/profile.php?id=100037037020909" target="_blank"><img src="data:image/png;base64,{facebook_logo_base64}" width="30"></a>""" if facebook_logo_base64 else ""
+kaggle_button_html = f"""<a href="https://www.kaggle.com/abdulrhmansalama" target="_blank"><img src="data:image/png;base64,{kaggle_logo_base64}" width="30"></a>""" if kaggle_logo_base64 else ""
 
 # Sidebar Navigation
 page = st.sidebar.selectbox("Select a Page", ["CV", "Portfolio"])
@@ -83,9 +93,9 @@ if page == "CV":
     - **Machine Learning Libraries**: TensorFlow, Keras, Scikit-learn
     - **AI Concepts**: Neural Networks, Deep Learning, Reinforcement Learning
     - **Tools & Software**: MATLAB, Jupyter, Git, Docker
-    - **Big Data Analysis**: Proficient in analyzing large datasets effectively.
-    - **Business Intelligence Tools**: Advanced skills in Power BI and Excel.
-    - **Streamlit Development**: Experienced in creating web applications using Streamlit library in Python.
+    - **Data Analysis Tools**: Excel, Power BI, Big Data Analysis
+    - **Python Libraries**: Streamlit for building interactive applications
+    - **AI Tools**: Proficient in using AI tools and frameworks for development
     """)
 
     st.header("Projects")
@@ -149,7 +159,7 @@ if page == "CV":
     You can reach me via the following channels:
     """)
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(linkedin_button_html, unsafe_allow_html=True)
@@ -158,6 +168,9 @@ if page == "CV":
     with col2:
         st.markdown(email_button_html, unsafe_allow_html=True)
         st.markdown(whatsapp_button_html, unsafe_allow_html=True)
+    with col3:
+        st.markdown(facebook_button_html, unsafe_allow_html=True)
+        st.markdown(kaggle_button_html, unsafe_allow_html=True)
 
 elif page == "Portfolio":
     st.title('Portfolio of Abdulrhman Salama')
@@ -202,7 +215,8 @@ elif page == "Portfolio":
     You can reach me via the following channels:
     """)
 
-    col1, col2 = st.columns(2)
+
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(linkedin_button_html, unsafe_allow_html=True)
@@ -211,3 +225,7 @@ elif page == "Portfolio":
     with col2:
         st.markdown(email_button_html, unsafe_allow_html=True)
         st.markdown(whatsapp_button_html, unsafe_allow_html=True)
+    with col3:
+        st.markdown(facebook_button_html, unsafe_allow_html=True)
+        st.markdown(kaggle_button_html, unsafe_allow_html=True)
+
