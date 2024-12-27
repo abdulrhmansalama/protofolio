@@ -159,7 +159,8 @@ if page == "CV":
     You can reach me via the following channels:
     """)
 
-    col1, col2 = st.columns(2)
+
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(linkedin_button_html, unsafe_allow_html=True)
@@ -168,7 +169,7 @@ if page == "CV":
     with col2:
         st.markdown(email_button_html, unsafe_allow_html=True)
         st.markdown(whatsapp_button_html, unsafe_allow_html=True)
-    # with col3:
+    with col3:
         st.markdown(facebook_button_html, unsafe_allow_html=True)
         st.markdown(kaggle_button_html, unsafe_allow_html=True)
 
@@ -216,7 +217,8 @@ elif page == "Portfolio":
     """)
 
 
-    col1, col2 = st.columns(2)
+
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.markdown(linkedin_button_html, unsafe_allow_html=True)
@@ -225,7 +227,6 @@ elif page == "Portfolio":
     with col2:
         st.markdown(email_button_html, unsafe_allow_html=True)
         st.markdown(whatsapp_button_html, unsafe_allow_html=True)
-    # with col3:
+    with col3:
         st.markdown(facebook_button_html, unsafe_allow_html=True)
         st.markdown(kaggle_button_html, unsafe_allow_html=True)
-
