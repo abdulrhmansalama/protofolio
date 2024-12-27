@@ -14,8 +14,7 @@ github_logo_path = "logo/GitHub.png"
 email_logo_path = "logo/Email.png"
 whatsapp_logo_path = "logo/WhatsApp.png"
 facebook_logo_path = "logo/Facebook.png"
-kaggle_logo_path = "logo/Kaggle.png"
-
+kaggle_logo_path = "logo/kaggle.png"
 def image_to_base64(image_path):
     """Convert an image file to base64 encoding."""
     try:
